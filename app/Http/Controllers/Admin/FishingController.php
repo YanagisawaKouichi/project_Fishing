@@ -13,4 +13,19 @@ class FishingController extends Controller
       return view('admin.fishing.create');
   }
 
+  public function create()
+  {
+      return redirect('admin/fishing/create');
+  }
+
+  public function edit()
+  {
+      return view('admin.fishing.edit');
+  }
+
+  public function update()
+  {
+      return redirect('admin/fishing/edit');
+  }
+
 }

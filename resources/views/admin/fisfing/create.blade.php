@@ -5,7 +5,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>MyNews</title>
+        <title>Fishing</title>
     </head>
     <body>
         <h1>釣果情報作成画面</h1>

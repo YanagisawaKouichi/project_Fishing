@@ -15,9 +15,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::group(['prefix' => 'admin'], function() {
-    Route::get('fishing/create', 'Admin\FishingController@add');
-    Route::post('fishing/create', 'Admin\FishingController@create');
-    Route::get('fishing/edit', 'Admin\FishingController@edit');
-    Route::post('fishing/edit', 'Admin\FishingController@edit');
-    Route::post('fishing/edit', 'Admin\FishingController@update');
+     Route::get('fishing/create', 'Admin\FishingController@add');
+     Route::post('fishing/create', 'Admin\FishingController@create'); # 追記
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

@@ -5,18 +5,18 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class FishingController extends Controller
+class PlaceController extends Controller
 {
   // Actionの追加
   public function add()
   {
-      return view('admin.fishing.create');
+      return view('admin.place.create');
   }
   // 以下を追記
   public function create(Request $request)
   {
-      // admin/fishing/createにリダイレクトする
-      return redirect('admin/fishing/create');
+      // admin/fish/createにリダイレクトする
+      return redirect('admin/place/create');
   }  
 }
 

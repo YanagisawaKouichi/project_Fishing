@@ -6,7 +6,7 @@
         <div class="row">
             <div class="col-md-8 mx-auto">
                 <h2>場所新規登録</h2>
-                <form action="{{ action('Admin\FishController@create') }}" method="post" enctype="multipart/form-data">
+                <form action="{{ action('Admin\PlaceController@create') }}" method="post" enctype="multipart/form-data">
 
                     @if (count($errors) > 0)
                         <ul>
@@ -22,35 +22,33 @@
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-md-2">季節</label>
+                        <label class="col-md-2">釣具屋</label>
                         <div class="col-md-10">
-                            <input type="text" class="form-control" name="season" value="{{ old('season') }}">
+                            <input type="text" class="form-control" name="shop" value="{{ old('shop') }}">
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-md-2">サイズ</label>
+                        <label class="col-md-2">トイレ</label>
                         <div class="col-md-10">
-                            <input type="text" class="form-control" name="size" value="{{ old('size') }}">
+                            <input type="text" class="form-control" name="toilet" value="{{ old('toilet') }}">
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-md-2">仕掛け</label>
-                        <div class="col-md-10">
-                            <input type="text" class="form-control" name="device" value="{{ old('device') }}">
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label class="col-md-2">難易度</label>
+                        <label class="col-md-2">駐車場</label>
                         <form method="post" action="example.cgi">
                         <p>
-                        <select name="example1">
-                        <option value="簡単">簡単</option>
-                        <option value="普通">普通</option>
-                        <option value="少し難しい">少し難しい</option>
-                        <option value="難しい">難しい</option>
+                        <select name="parking">
+                        <option value="あり">あり</option>
+                        <option value="なし">なし</option>
                         </select>
                         </p>
                         </form>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-md-2">釣り場までの距離</label>
+                        <div class="col-md-10">
+                            <input type="text" class="form-control" name="distance" value="{{ old('distance') }}">
+                        </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-md-2">説明</label>

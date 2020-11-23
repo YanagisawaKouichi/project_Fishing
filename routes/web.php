@@ -19,8 +19,8 @@ Route::group(['prefix' => 'admin'], function() {
      Route::post('fish/create', 'Admin\FishController@create');# 追記
      Route::get('fish', 'Admin\FishController@index');
      
-    //  Route::get('place/create', 'Admin\PlaceController@add');
-    //  Route::post('place/create', 'Admin\PlaceController@create');
+     Route::get('place/create', 'Admin\PlaceController@add');
+     Route::post('place/create', 'Admin\PlaceController@create');
 });
 
 Auth::routes();

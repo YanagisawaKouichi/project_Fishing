@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
+use App\Place;
+
 class PlaceController extends Controller
 {
   // Actionの追加
@@ -16,7 +18,7 @@ class PlaceController extends Controller
   public function create(Request $request)
   {
      
-     $this->validate($request, Place::$rules);
+      $this->validate($request, Place::$rules);
       $place = new Place;
       $form = $request->all();
       // フォームから画像が送信されてきたら、保存して、$news->image_path に画像のパスを保存する
@@ -37,5 +39,19 @@ class PlaceController extends Controller
       // admin/fish/createにリダイレクトする
       return redirect('admin/place/create');
   }  
+  
+  public function index(Request $request)
+  {
+      $cond_title = $request->cond_title;
+      if ($cond_title != '') {
+        // 検索された検索結果を取得する
+        $posts = Place::where('title, $cond_title')->get();
+      } else {
+        //それ以外は全てのニュースを取得する
+        $posts = Place::all();
+      }
+      return view('admin.place.index', ['posts' => $posts, 'cond_title' => $cond_title]);
+  }
+  
 }
 

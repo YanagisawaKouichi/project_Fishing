@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateFishTable extends Migration
+class CreatePlaceTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,13 @@ class CreateFishTable extends Migration
      */
     public function up()
     {
-        Schema::create('fish', function (Blueprint $table) {
+        Schema::create('place', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');
-            $table->string('season');
-            $table->string('size');
-            $table->string('device');
-            $table->string('level');
+            $table->string('shop');
+            $table->string('toilet');
+            $table->string('parking');
+            $table->string('distance');
             $table->string('body');
             $table->string('image_path')->nullable();
             $table->timestamps();
@@ -33,6 +33,6 @@ class CreateFishTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('fish');
+        Schema::dropIfExists('place');
     }
 }

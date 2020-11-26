@@ -7,6 +7,9 @@ use App\Http\Controllers\Controller;
 
 use App\Fish;
 
+use App\History;
+use Carbon\Carbon;
+
 class FishController extends Controller
 {
   // Actionの追加
@@ -52,6 +55,55 @@ class FishController extends Controller
       return view('admin.fish.index', ['posts' => $posts, 'cond_title' => $cond_title]);
   }
   
+  public function edit(Request $request)
+  {
+      // Fish Modelからデータを取得する
+      $fish = Fish::find($request->id);
+      if (empty($fish)) {
+        abort(404);
+      }
+      return view('admin.fish.edit', ['fish_form' => $fish]);
+  }
   
+  
+   public function update(Request $request)
+  {
+      // Validationをかける
+      $this->validate($request, Fish::$rules);
+      // Fish Modelからデータを取得する
+      $fish = Fish::find($request->id);
+      // 送信されてきたフォームデータを格納する
+      $fish_form = $request->all();
+      if ($request->remove == 'true') {
+          $fish_form['image_path'] = null;
+      } elseif ($request->file('image')) {
+          $path = $request->file('image')->store('public/image');
+          $fish_form['image_path'] = basename($path);
+      } else {
+          $fish_form['image_path'] = $fish->image_path;
+      }
+
+      unset($fish_form['image']);
+      unset($fish_form['remove']);
+      unset($fish_form['_token']);
+
+      // 該当するデータを上書きして保存する
+      $fish->fill($fish_form)->save();
+      
+      $history = new History;
+      $history->fish_id = $fish->id;
+      $history->edited_at = Carbon::now();
+      $history->save();
+
+      return redirect('admin/fish/');
+  }
+  public function delete(Request $request)
+  {
+      // 該当するNews Modelを取得
+      $fish = Fish::find($request->id);
+      // 削除する
+      $fish->delete();
+      return redirect('admin/fish/');
+  }  
 }
 

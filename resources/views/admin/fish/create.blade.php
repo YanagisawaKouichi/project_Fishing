@@ -7,7 +7,6 @@
             <div class="col-md-8 mx-auto">
                 <h2>魚種新規登録</h2>
                 <form action="{{ action('Admin\FishController@create') }}" method="post" enctype="multipart/form-data">
-
                     @if (count($errors) > 0)
                         <ul>
                             @foreach($errors->all() as $e)
@@ -41,25 +40,21 @@
                     </div>
                     <div class="form-group row">
                         <label class="col-md-2" for= "level">難易度</label>
-                        <form method="post" action="example.cgi">
-                        <p>
-                        <select name="example1">
+                        <select name="level">
                         <option value="簡単">簡単</option>
                         <option value="普通">普通</option>
                         <option value="少し難しい">少し難しい</option>
                         <option value="難しい">難しい</option>
                         </select>
-                        </p>
-                        </form>
                     </div>
                     <div class="form-group row">
-                        <label class="col-md-2" for= "dody">説明</label>
+                        <label class="col-md-2" for= "body">説明</label>
                         <div class="col-md-10">
                             <textarea class="form-control" name="body" rows="20">{{ old('body') }}</textarea>
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-md-2" for="name">画像</label>
+                        <label class="col-md-2" for="image">画像</label>
                         <div class="col-md-10">
                             <input type="file" class="form-control-file" name="image">
                         </div>

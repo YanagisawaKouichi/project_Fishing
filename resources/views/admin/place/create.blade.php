@@ -16,48 +16,44 @@
                         </ul>
                     @endif
                     <div class="form-group row">
-                        <label class="col-md-2">名前</label>
+                        <label class="col-md-2" for= "name">名前</label>
                         <div class="col-md-10">
                             <input type="text" class="form-control" name="name" value="{{ old('name') }}">
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-md-2">釣具屋</label>
+                        <label class="col-md-2" for="shop">釣具屋</label>
                         <div class="col-md-10">
                             <input type="text" class="form-control" name="shop" value="{{ old('shop') }}">
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-md-2">トイレ</label>
+                        <label class="col-md-2" for="toilet">トイレ</label>
                         <div class="col-md-10">
                             <input type="text" class="form-control" name="toilet" value="{{ old('toilet') }}">
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-md-2">駐車場</label>
-                        <form method="post" action="example.cgi">
-                        <p>
+                        <label class="col-md-2" for="parking">駐車場</label>
                         <select name="parking">
                         <option value="あり">あり</option>
                         <option value="なし">なし</option>
                         </select>
-                        </p>
-                        </form>
                     </div>
                     <div class="form-group row">
-                        <label class="col-md-2">釣り場までの距離</label>
+                        <label class="col-md-2" for="distance">釣り場までの距離</label>
                         <div class="col-md-10">
                             <input type="text" class="form-control" name="distance" value="{{ old('distance') }}">
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-md-2">説明</label>
+                        <label class="col-md-2" for="body">説明</label>
                         <div class="col-md-10">
                             <textarea class="form-control" name="body" rows="20">{{ old('body') }}</textarea>
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-md-2">画像</label>
+                        <label class="col-md-2" for="image">画像</label>
                         <div class="col-md-10">
                             <input type="file" class="form-control-file" name="image">
                         </div>
@@ -68,3 +64,4 @@
             </div>
         </div>
     </div>
+@endsection

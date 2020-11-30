@@ -24,7 +24,11 @@ Route::group(['prefix' => 'admin'], function() {
      
      Route::get('place/create', 'Admin\PlaceController@add');
      Route::post('place/create', 'Admin\PlaceController@create');
-});  Route::get('place', 'Admin\PlaceController@index');
+     Route::get('place', 'Admin\PlaceController@index');
+     Route::get('place/edit', 'Admin\PlaceController@edit'); // 追記
+     Route::post('place/edit', 'Admin\PlaceController@update');
+     Route::get('place/delete', 'Admin\PlaceController@delete');
+});
 
 Auth::routes();
 

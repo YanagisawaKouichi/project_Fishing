@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 use App\Place;
+use App\Historyplace;
+
+use Carbon\Carbon;
 
 class PlaceController extends Controller
 {
@@ -36,7 +39,7 @@ class PlaceController extends Controller
       $place->fill($form);
       $place->save();
       
-      // admin/fish/createにリダイレクトする
+      // admin/place/createにリダイレクトする
       return redirect('admin/place/create');
   }  
   
@@ -53,5 +56,55 @@ class PlaceController extends Controller
       return view('admin.place.index', ['posts' => $posts, 'cond_title' => $cond_title]);
   }
   
+  public function edit(Request $request)
+  {
+      // Place Modelからデータを取得する
+      $place = Place::find($request->id);
+      if (empty($place)) {
+        abort(404);    
+      }
+      return view('admin.place.edit', ['place_form' => $place]);
+  }
+
+
+  public function update(Request $request)
+  {
+      // Validationをかける
+      $this->validate($request, Place::$rules);
+      // News Modelからデータを取得する
+      $place = Place::find($request->id);
+      // 送信されてきたフォームデータを格納する
+      $place_form = $request->all();
+      if ($request->remove == 'true') {
+          $place_form['image_path'] = null;
+      } elseif ($request->file('image')) {
+          $path = $request->file('image')->store('public/image');
+          $place_form['image_path'] = basename($path);
+      } else {
+          $place_form['image_path'] = $place->image_path;
+      }
+
+      unset($place_form['image']);
+      unset($place_form['remove']);
+      unset($place_form['_token']);
+
+      // 該当するデータを上書きして保存する
+      $place->fill($place_form)->save();
+      
+      $history = new Historyplace;
+        $history->place_id = $place->id;
+        $history->placeedited_at = Carbon::now();
+        $history->save();
+
+      return redirect('admin/place');
+  }
+  public function delete(Request $request)
+  {
+      // 該当するNews Modelを取得
+      $place = Place::find($request->id);
+      // 削除する
+      $place->delete();
+      return redirect('admin/place/');
+  }
 }
 

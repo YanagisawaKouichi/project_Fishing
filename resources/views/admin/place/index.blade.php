@@ -42,6 +42,14 @@
                                     <th>{{ $place->id }}</th>
                                     <td>{{ \Str::limit($place->name, 100) }}</td>
                                     <td>{{ \Str::limit($place->body, 250) }}</td>
+                                    <td>
+                                        <div>
+                                            <a href="{{ action('Admin\PlaceController@edit', ['id' => $place->id]) }}">編集</a>
+                                        </div>
+                                        <div>
+                                            <a href="{{ action('Admin\PlaceController@delete', ['id' => $place->id]) }}">削除</a>
+                                        </div>
+                                    </td>
                                 </tr>
                             @endforeach
                         </tbody>

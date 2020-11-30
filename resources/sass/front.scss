@@ -18,7 +18,7 @@ body {
     width: 100%;
       }
     }
-    .title {
+    .name {
       width: 100%;
       position: absolute;
       bottom: 0;
@@ -41,10 +41,22 @@ body {
       font-size: 0.6em;
       color: #999999;
     }
-    .title {
+    .name {
+      font-size: 1.2em;
+      font-weight: bold;
+    .season {
       font-size: 1.2em;
       font-weight: bold;
     }
+    .size {
+      font-size: 1.2em;
+      font-weight: bold;
+    .device {
+      font-size: 1.2em;
+      font-weight: bold;
+    .level {
+      font-size: 1.2em;
+      font-weight: bold;
     .body {
       font-size: 0.8em;
     }

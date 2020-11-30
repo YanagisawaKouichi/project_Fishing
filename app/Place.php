@@ -14,4 +14,10 @@ class Place extends Model
         'body' => 'required',
         
     );
+    
+    public function placehistories()
+    {
+      return $this->hasMany('App\Historyplace');
+
+    }
 }

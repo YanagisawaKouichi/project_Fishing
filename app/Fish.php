@@ -20,9 +20,9 @@ class Fish extends Model
         return $this->hasMany('App\History');
     }
     
-    // public function places()
-    // {
-    //   return $this->hasMany('App\Place');
+    public function places()
+    {
+      return $this->hasMany('App\Place');
 
-    // }
+    }
 }

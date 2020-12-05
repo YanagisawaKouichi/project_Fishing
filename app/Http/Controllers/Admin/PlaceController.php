@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 use App\Place;
-use App\Historyplace;
+use App\Placehistories;
 
 use Carbon\Carbon;
 
@@ -91,7 +91,7 @@ class PlaceController extends Controller
       // 該当するデータを上書きして保存する
       $place->fill($place_form)->save();
       
-      $history = new Historyplace;
+      $history = new Placehistories;
         $history->place_id = $place->id;
         $history->placeedited_at = Carbon::now();
         $history->save();

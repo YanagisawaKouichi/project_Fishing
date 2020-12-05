@@ -16,7 +16,7 @@ body {
   width: 100%;
 }
 
-.headline .caption .title {
+.headline .caption .name {
   width: 100%;
   position: absolute;
   bottom: 0;
@@ -24,7 +24,7 @@ body {
   background-color: rgba(0, 0, 0, 0.6);
 }
 
-.headline .caption .title h1 {
+.headline .caption .name h1 {
   color: #fff;
   font-size: 1.2em;
 }
@@ -38,7 +38,7 @@ body {
   color: #999999;
 }
 
-.posts .post .title {
+.posts .post .name {
   font-size: 1.2em;
   font-weight: bold;
 }

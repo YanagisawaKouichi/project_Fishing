@@ -17,7 +17,12 @@ class Place extends Model
     
     public function placehistories()
     {
-      return $this->hasMany('App\Historyplace');
+      return $this->hasMany('App\Placehistories');
+
+    }
+    public function fish()
+    {
+      return $this->hasMany('App\Fish');
 
     }
 }

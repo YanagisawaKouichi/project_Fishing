@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Historyplace extends Model
+class Placehistories extends Model
 {
     protected $guarded = array('id');
 

@@ -65,4 +65,24 @@
             </div>
         </div>
     </div>
+    <div class="container">
+        <div class="row">
+            <h2>魚一覧</h2>
+        </div>
+        <div class="row">
+            <div class="list-news col-md-12 mx-auto">
+                <div class="row">
+                    <table class="table table-dark">
+                        <thead>
+                            <tr>
+                                <th width="10%">ID</th>
+                                <th width="20%">名前</th>
+                                <th width="50%">本文</th>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
 @endsection

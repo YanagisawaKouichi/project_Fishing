@@ -40,6 +40,7 @@ class PlaceController extends Controller
       $place->save();
       
       // admin/place/createにリダイレクトする
+      
       return redirect('admin/place/create');
   }  
   

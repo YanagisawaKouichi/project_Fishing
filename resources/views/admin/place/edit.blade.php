@@ -36,10 +36,10 @@
                      <div class="form-group row">
                         <label class="col-md-2" for="parking">駐車場</label>
                         <select name="parking">
-                            @if ($place_rorm->parking === 'あり') 
+                            @if ($place_form->parking === 'あり') 
                                <option value="あり" selected="selected">あり</option>
                                <option value="なし">なし</option>
-                            @else if ($place_form->parking === 'なし') 
+                            @elseif ($place_form->parking === 'なし') 
                                <option value="なし" selected="selected">なし</option>
                                <option value="あり">あり</option>
                             @else

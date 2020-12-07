@@ -35,3 +35,5 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/', 'FishController@index');
+
+Route::get('/', 'PlaceController@index');

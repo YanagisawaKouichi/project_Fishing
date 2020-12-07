@@ -49712,6 +49712,17 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/sass/profile.scss":
+/*!*************************************!*\
+  !*** ./resources/sass/profile.scss ***!
+  \*************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
 /***/ 0:
 /*!***************************************************************************************************************************************************!*\
   !*** multi ./resources/js/app.js ./resources/sass/app.scss ./resources/sass/admin.scss ./resources/sass/profile.scss ./resources/sass/front.scss ***!
@@ -49722,7 +49733,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__(/*! /home/ec2-user/environment/fishing_beginner/resources/js/app.js */"./resources/js/app.js");
 __webpack_require__(/*! /home/ec2-user/environment/fishing_beginner/resources/sass/app.scss */"./resources/sass/app.scss");
 __webpack_require__(/*! /home/ec2-user/environment/fishing_beginner/resources/sass/admin.scss */"./resources/sass/admin.scss");
-!(function webpackMissingModule() { var e = new Error("Cannot find module '/home/ec2-user/environment/fishing_beginner/resources/sass/profile.scss'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
+__webpack_require__(/*! /home/ec2-user/environment/fishing_beginner/resources/sass/profile.scss */"./resources/sass/profile.scss");
 module.exports = __webpack_require__(/*! /home/ec2-user/environment/fishing_beginner/resources/sass/front.scss */"./resources/sass/front.scss");
 
 

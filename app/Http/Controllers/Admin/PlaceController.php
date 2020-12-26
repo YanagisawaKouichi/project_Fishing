@@ -39,6 +39,7 @@ class PlaceController extends Controller
       $place->fill($form);
       $place->save();
       
+      $posts = Fish::all();
       // admin/place/createにリダイレクトする
       
       return redirect('admin/place/create');

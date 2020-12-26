@@ -15,19 +15,19 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::group(['prefix' => 'admin'], function() {
-     Route::get('fish/create', 'Admin\FishController@add');
-     Route::post('fish/create', 'Admin\FishController@create');# 追記
-     Route::get('fish', 'Admin\FishController@index');
-     Route::get('fish/edit', 'Admin\FishController@edit'); 
-     Route::post('fish/edit', 'Admin\FishController@update');
-     Route::get('fish/delete', 'Admin\FishController@delete');
+     Route::get('fish/create', 'Admin\FishController@add')->middleware('auth');
+     Route::post('fish/create', 'Admin\FishController@create')->middleware('auth');# 追記
+     Route::get('fish', 'Admin\FishController@index')->middleware('auth');
+     Route::get('fish/edit', 'Admin\FishController@edit')->middleware('auth'); 
+     Route::post('fish/edit', 'Admin\FishController@update')->middleware('auth');
+     Route::get('fish/delete', 'Admin\FishController@delete')->middleware('auth');
      
-     Route::get('place/create', 'Admin\PlaceController@add');
-     Route::post('place/create', 'Admin\PlaceController@create');
-     Route::get('place', 'Admin\PlaceController@index');
-     Route::get('place/edit', 'Admin\PlaceController@edit'); // 追記
-     Route::post('place/edit', 'Admin\PlaceController@update');
-     Route::get('place/delete', 'Admin\PlaceController@delete');
+     Route::get('place/create', 'Admin\PlaceController@add')->middleware('auth');
+     Route::post('place/create', 'Admin\PlaceController@create')->middleware('auth');
+     Route::get('place', 'Admin\PlaceController@index')->middleware('auth');
+     Route::get('place/edit', 'Admin\PlaceController@edit')->middleware('auth'); // 追記
+     Route::post('place/edit', 'Admin\PlaceController@update')->middleware('auth');
+     Route::get('place/delete', 'Admin\PlaceController@delete')->middleware('auth');
 });
 
 Auth::routes();

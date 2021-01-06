@@ -9,6 +9,7 @@ use App\Fish;
 
 use App\History;
 use Carbon\Carbon;
+use Storage;
 
 class FishController extends Controller
 {
@@ -26,8 +27,8 @@ class FishController extends Controller
       $form = $request->all();
       // フォームから画像が送信されてきたら、保存して、$news->image_path に画像のパスを保存する
       if (isset($form['image'])) {
-        $path = $request->file('image')->store('public/image');
-        $fish->image_path = basename($path);
+        $path = Storage::disk('s3')->putFile('/',$form['image'],'public');
+        $fish->image_path = Storage::disk('s3')->url($path);
       } else {
           $fish->image_path = null;
       }
@@ -77,8 +78,8 @@ class FishController extends Controller
       if ($request->remove == 'true') {
           $fish_form['image_path'] = null;
       } elseif ($request->file('image')) {
-          $path = $request->file('image')->store('public/image');
-          $fish_form['image_path'] = basename($path);
+          $path = Storage::disk('s3')->putFile('/',$form['image'],'public');
+        $fish_form->image_path = Storage::disk('s3')->url($path);
       } else {
           $fish_form['image_path'] = $fish->image_path;
       }

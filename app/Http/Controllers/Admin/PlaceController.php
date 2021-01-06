@@ -7,8 +7,8 @@ use App\Http\Controllers\Controller;
 
 use App\Place;
 use App\Placehistories;
-
 use Carbon\Carbon;
+use Storage;
 
 class PlaceController extends Controller
 {
@@ -26,8 +26,8 @@ class PlaceController extends Controller
       $form = $request->all();
       // フォームから画像が送信されてきたら、保存して、$news->image_path に画像のパスを保存する
       if (isset($form['image'])) {
-        $path = $request->file('image')->store('public/image');
-        $place->image_path = basename($path);
+        $path = Storage::disk('s3')->putFile('/',$form['image'],'public');
+        $place->image_path = Storage::disk('s3')->url($path);
       } else {
           $place->image_path = null;
       }
@@ -80,8 +80,8 @@ class PlaceController extends Controller
       if ($request->remove == 'true') {
           $place_form['image_path'] = null;
       } elseif ($request->file('image')) {
-          $path = $request->file('image')->store('public/image');
-          $place_form['image_path'] = basename($path);
+          $path = Storage::disk('s3')->putFile('/',$form['image'],'public');
+        $place_form->image_path = Storage::disk('s3')->url($path);
       } else {
           $place_form['image_path'] = $place->image_path;
       }
